@@ -2,36 +2,29 @@ let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 let rows = 20;
 let cols = 20;
-let snake = [
-  {
-    x: 19,
-    y: 3,
-  },
-];
-
+let snake = [{ x: 19, y: 3 }];
 let food;
-
 let cellWidth = canvas.width / cols;
 let cellHeight = canvas.height / rows;
-let direction = "LEFT";
+let direction = "left";
 let foodCollected = false;
 
 placeFood();
 
 setInterval(gameLoop, 200);
-document.addEventListener("keydown", keyDown);
+document.addEventListener("keydown", directKey);
 
 draw();
 
 function draw() {
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "#0a9d4d";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "#4b0de6";
 
   snake.forEach((part) => add(part.x, part.y));
 
-  ctx.fillStyle = "yellow";
-  add(food.x, food.y); // Food
+  ctx.fillStyle = " #d3d907 ";
+  add(food.x, food.y);
 
   requestAnimationFrame(draw);
 }
@@ -43,7 +36,6 @@ function testGameOver() {
     (part) => part.x == firstPart.x && part.y == firstPart.y
   );
 
-  // 1. Schlange läuft gegen die Wand
   if (
     snake[0].x < 0 ||
     snake[0].x > cols - 1 ||
@@ -58,7 +50,7 @@ function testGameOver() {
         y: 3,
       },
     ];
-    direction = "LEFT";
+    direction = "left";
   }
 }
 
@@ -101,19 +93,19 @@ function gameLoop() {
 
   shiftSnake();
 
-  if (direction == "LEFT") {
+  if (direction == "left") {
     snake[0].x--;
   }
 
-  if (direction == "RIGHT") {
+  if (direction == "right") {
     snake[0].x++;
   }
 
-  if (direction == "UP") {
+  if (direction == "up") {
     snake[0].y--;
   }
 
-  if (direction == "DOWN") {
+  if (direction == "down") {
     snake[0].y++;
   }
 
@@ -124,17 +116,17 @@ function gameLoop() {
   }
 }
 
-function keyDown(e) {
+function directKey(e) {
   if (e.keyCode == 37) {
-    direction = "LEFT";
+    direction = "left";
   }
   if (e.keyCode == 38) {
-    direction = "UP";
+    direction = "up";
   }
   if (e.keyCode == 39) {
-    direction = "RIGHT";
+    direction = "right";
   }
   if (e.keyCode == 40) {
-    direction = "DOWN";
+    direction = "down";
   }
 }
