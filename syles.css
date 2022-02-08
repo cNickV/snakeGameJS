@@ -1,0 +1,8 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+#board,
+.boardInfo {
+  max-width: 500px;
+}
