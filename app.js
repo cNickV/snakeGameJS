@@ -1,7 +1,7 @@
-const board = document.querySelector("#board");
-const scoreBoard = document.querySelector("#scoreBoard");
-const gameOver = document.querySelector("#gameOver");
-const start = document.querySelector(".start");
+const board = document.getElementById("board");
+const scoreBoard = document.getElementById("scoreBoard");
+const gameOver = document.getElementById("gameOver");
+const start = document.getElementById("start");
 
 const boardSize = 10;
 const gameSpeed = 100;
@@ -11,7 +11,7 @@ const squareTypes = {
   foodSquare: 2,
 };
 
-const direction = {
+const directions = {
   ArrowUp: -10,
   ArrowDown: 10,
   ArrowRight: 1,
@@ -21,17 +21,18 @@ const direction = {
 let snake;
 let score;
 let direction;
-let boardSquare;
-let emptySquare;
+let boardSquares;
+let emptySquares;
 let moveInterval;
 
 const setGame = () => {
   snake = ["00", "01", "02", "03"];
   score = snake.length;
   direction = "arrrowRight";
-  boardSquare = Array.from(Array(boardSquare), () =>
+  boardSquares = Array.from(Array(boardSize), () =>
     new Array(boardSize).fill(squareTypes.emptySquare)
   );
+  console.log(boardSquares);
 };
 
 const startGame = () => {
