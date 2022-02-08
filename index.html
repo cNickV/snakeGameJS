@@ -6,19 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,900;1,400&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,900;1,400&family=Share+Tech+Mono&display=swap");
     </style>
     <title>Snake Game</title>
   </head>
   <body>
-    <div class="board">
-      <div class="boardInfo">
-        <div>
-          Score :
-          <div class="scoreBoard"></div>
-        </div>
+    <div id="board"></div>
+    <div class="boardInfo">
+      <div>
+        Score:
+        <div id="scoreBoard"></div>
       </div>
+      <button id="start">Start</button>
     </div>
+    <div id="gameOver">Game Over</div>
+
     <script src="app.js" defer></script>
   </body>
 </html>
