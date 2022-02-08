@@ -30,10 +30,10 @@
 #start {
   background-color: #f35a69;
   border: none;
-  color: #fff;
+  color: white;
 }
 
-#scoreboard {
+#scoreBoard {
   display: inline-flex;
 }
 
@@ -42,9 +42,15 @@
 }
 
 .emptySquare {
-  background-color: #a3cf28;
+  background-color: #6d71b5;
+}
+
+.snakeSquare {
+  background-color: #e3e773;
+  border: 1px solid #000;
 }
 
 .foodSquare {
-  background-color: #f35a69;
+  background-color: #55e7e7;
+  border: 1px solid #000;
 }
